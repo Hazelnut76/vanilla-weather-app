@@ -12,6 +12,24 @@ function formatDate(timestamp) {
   ];
   let day = days[date.getDay()];
 
+  let months = [
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec",
+  ];
+  let month = months[date.getMonth()];
+
+  let dates = date.getDate();
+
   let hours = date.getHours();
   if (hours < 10) {
     hours = `0${hours}`;
@@ -22,10 +40,12 @@ function formatDate(timestamp) {
     minutes = `0${minutes}`;
   }
 
-  return `${day} ${hours}:${minutes}`;
+  return `${day} ${month}, ${dates} ${hours}:${minutes}`;
 }
 
 function diasplayTempertue(response) {
+  console.log(response);
+
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
   let descriptionElement = document.querySelector("#description");
@@ -33,6 +53,7 @@ function diasplayTempertue(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+  let feelingElement = document.querySelector("#feeling");
 
   celsiusTemperature = response.data.main.temp;
 
@@ -47,6 +68,7 @@ function diasplayTempertue(response) {
     `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  feelingElement.innerHTML = Math.round(response.data.main.feels_like);
 }
 
 function search(city) {
