@@ -5,7 +5,7 @@ body {
   background-color: #e8e5ec;
 }
 h1 {
-  color: #878787;
+  color: #535353;
   font-size: 24px;
   font-weight: 100;
   line-height: 28px;
@@ -77,9 +77,9 @@ a {
   color: #000;
 }
 .weather-forecast-date {
+  color: #535353;
   font-size: 15px;
   margin-top: 20px;
-  opacity: 0.5;
 }
 .weather-forecast-temperature-min {
   opacity: 0.5;
